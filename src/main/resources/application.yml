@@ -1,0 +1,86 @@
+user:
+  age: 21
+  name: yyl
+druid:
+  driver-class-name: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/springboot
+  username: root
+  password: root
+#druid2:
+#  driver-class-name: com.mysql.jdbc.Driver
+#  url: jdbc:mysql://localhost:3306/springboot
+#  username: root
+#  password: root
+cloud:
+  version: 2.0
+
+spring:
+  profiles:
+    active: prod
+  rabbitmq:
+    host: 192.168.111.129
+    username: root
+    password: root
+    listener:
+      simple:
+        retry:
+#          开启重试机制
+          enabled: true
+#          重试次数
+          max-attempts: 10
+#          重试最长的时间间隔
+          max-interval: 10000
+#          首次重试的时间间隔
+          initial-interval: 1000
+#          和上一次重试的时间间隔的系数
+          multiplier: 1
+#            rabbitmq的basicQos,表示最大的被ack的消息的数量，如果达到这个数量，则mq不会再发送消息至此队列
+        prefetch: 10
+        acknowledge-mode: manual
+    template:
+      mandatory: true
+#      开启消息发送确认机制
+    publisher-confirms: true
+#    开启消息正确发送到交互交换器的回调
+    publisher-returns: true
+#可查看开启了哪些自动配置项
+#debug: true
+
+#打印jdbcTemplate的sql日志
+logging:
+  level:
+    org.springframework.jdbc.core.JdbcTemplate: debug
+    com.yyl.UserDao: debug
+mybatis:
+  mapper-locations: /mapper/*.xml
+groovy:
+  file:
+    location: classpath*:gmp/*.groovy
+
+# 三个中划线表示yml文件的分割，这样就可以将三种不同的profile写在一个文件中了
+management:
+  endpoints:
+    web:
+      exposure:
+#        加载所有端点，否则默认只会加载/actuator/health和/actuator/info端点
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: false
+---
+spring:
+  profiles: prod
+server:
+  port: 8084
+---
+spring:
+  profiles: dev
+server:
+  port: 8085
+---
+spring:
+  profiles: test
+server:
+  port: 8086
