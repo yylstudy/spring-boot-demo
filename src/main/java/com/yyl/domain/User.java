@@ -1,4 +1,4 @@
-package com.yyl;
+package com.yyl.domain;
 
 import lombok.Getter;
 import lombok.Setter;

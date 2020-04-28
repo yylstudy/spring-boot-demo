@@ -1,17 +1,13 @@
-package com.yyl;
+package com.yyl.configuration;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.yyl2.MyAutoConfiguration;
+import com.yyl.annotation.Dao;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
-
-import javax.sql.DataSource;
 
 /**
  * @Author yang.yonglian
@@ -34,18 +30,9 @@ public class MyConfiguration {
         return new DruidDataSource();
     }
 
-//    @Bean
-//    @ConfigurationProperties("druid2")
-//    public DruidDataSource dataSource3(){
-//        return new DruidDataSource();
-//    }
     @Bean
     public JdbcTemplate jdbcTemplate2(){
         return new JdbcTemplate(dataSource());
     }
-//    @Bean
-//    public JdbcTemplate jdbcTemplate3(){
-//        return new JdbcTemplate(dataSource3());
-//    }
 
 }

@@ -1,4 +1,4 @@
-package com.yyl;
+package com.yyl.controller;
 
 import com.yyl2.requestmapping.MyRequestMapping;
 import com.yyl2.requestmapping.WebProxy;

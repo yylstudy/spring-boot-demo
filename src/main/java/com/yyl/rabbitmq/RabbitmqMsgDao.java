@@ -1,4 +1,8 @@
-package com.yyl;
+package com.yyl.rabbitmq;
+
+import com.yyl.annotation.Dao;
+import com.yyl.rabbitmq.RabbitmqMsg;
+import org.springframework.context.annotation.Profile;
 
 /**
  * @Author yang.yonglian
@@ -7,6 +11,7 @@ package com.yyl;
  * @Date 2019/8/30 0030
  */
 @Dao
+@Profile("rabbitmq")
 public interface RabbitmqMsgDao {
     int insert(RabbitmqMsg msg);
 }

@@ -1,6 +1,15 @@
-package com.yyl;
+package com.yyl.controller;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.yyl.annotation.CloudService;
+import com.yyl.dao.UserDao;
+import com.yyl.dao.UserDao2;
+import com.yyl.domain.MyGroovyUser;
+import com.yyl.domain.MyUser;
+import com.yyl.domain.User;
+import com.yyl.rabbitmq.MyMsg;
+import com.yyl.rabbitmq.MyProducer;
+import com.yyl.service.Yyl;
 import com.yyl2.MyAutoConfiguration;
 import com.yyl2.groovy.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,16 +18,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.support.TransactionTemplate;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.request.NativeWebRequest;
-import org.springframework.web.servlet.ModelAndView;
-import sun.misc.Signal;
-import sun.misc.SignalHandler;
 
 import javax.annotation.PostConstruct;
-import javax.ws.rs.POST;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -58,8 +61,11 @@ public class MyController {
     @Autowired
     private MyProducer myProducer;
 
-    @PostConstruct
-    public void test3(){
+    /**
+     * mybatis 缓存测试
+     */
+    @RequestMapping("/test1")
+    public void init(){
         System.out.println(myUser);
         System.out.println(dataSource.getDriverClassName()+"----"+dataSource.getPassword()+"------------------");
         List<Map<String, Object>> list = jdbcTemplate.queryForList("select username,password from test1");
@@ -107,9 +113,10 @@ public class MyController {
         return "success";
     }
 
-    @ExceptionHandler
-    public void exceptionResolve(){
 
+    @RequestMapping("/test6")
+    @ResponseBody
+    public String test6(){
+        throw new RuntimeException("hahaha");
     }
-
 }

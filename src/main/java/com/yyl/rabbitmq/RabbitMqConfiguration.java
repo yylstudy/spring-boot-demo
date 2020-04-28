@@ -1,11 +1,13 @@
-package com.yyl;
+package com.yyl.rabbitmq;
 
+import com.yyl.rabbitmq.RabbitMqConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +18,7 @@ import java.util.Map;
  * @Description: TODO(这里描述)
  * @Date 2019/8/15 0015
  */
+@Profile("rabbitmq")
 @Configuration
 @Slf4j
 public class RabbitMqConfiguration {

@@ -1,7 +1,7 @@
 package gmp
 
-import com.yyl.MyGroovyUser
-import com.yyl.MyUser
+import com.yyl.domain.MyGroovyUser
+import com.yyl.domain.MyUser
 
 /**
  * @Author yang.yonglian* @ClassName: gmp* @Description: TODO(这里描述)

@@ -1,5 +1,6 @@
-package com.yyl;
+package com.yyl.service;
 
+import com.yyl.annotation.CloudService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @ConditionalOnProperty(prefix = "cloud",name = "version",havingValue = "1.0")
-public class MyCloudService1 implements CloudService{
+public class MyCloudService1 implements CloudService {
     @Override
     public void test1() {
         System.out.println("this is MyCloudService1");

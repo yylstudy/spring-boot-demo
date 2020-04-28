@@ -1,4 +1,4 @@
-package com.yyl;
+package com.yyl.aspects;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyAspect {
 
-    @Before("execution(* com.yyl.MyController.test2(..))")
+    @Before("execution(* com.yyl.controller.MyController.test2(..))")
     public void test1(){
         System.out.println("hhahahah");
     }

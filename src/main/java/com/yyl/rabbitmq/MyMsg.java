@@ -1,10 +1,9 @@
-package com.yyl;
+package com.yyl.rabbitmq;
 
+import com.yyl.domain.BaseEntry;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
+import lombok.ToString;
 
 /**
  * @Author yang.yonglian
@@ -14,7 +13,7 @@ import java.io.Serializable;
  */
 @Setter
 @Getter
-public class BaseEntry implements Serializable {
-    @NotNull
-    private String id;
+@ToString(callSuper=true)
+public class MyMsg extends BaseEntry {
+    private String name;
 }

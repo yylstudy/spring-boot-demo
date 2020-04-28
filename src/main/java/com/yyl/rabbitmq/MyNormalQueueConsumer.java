@@ -1,4 +1,4 @@
-package com.yyl;
+package com.yyl.rabbitmq;
 
 import com.rabbitmq.client.Channel;
 import lombok.SneakyThrows;
@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
  * @Description: 消费者
  * @Date 2019/8/15 0015
  */
+@Profile("rabbitmq")
 @Component
 @RabbitListener(queues = RabbitMqConstant.NORMAL_QUEUE_NAME)
 public class MyNormalQueueConsumer {
@@ -28,7 +30,7 @@ public class MyNormalQueueConsumer {
      */
     @RabbitHandler
     @SneakyThrows(Exception.class)
-    public void consumeMsg(MyMsg myMsg,Channel channel,Message message){
+    public void consumeMsg(MyMsg myMsg, Channel channel, Message message){
         log.debug("接收到消息:{}", myMsg);
         try{
             int s = 1/0;

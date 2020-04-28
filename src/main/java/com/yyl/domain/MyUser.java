@@ -1,4 +1,4 @@
-package com.yyl;
+package com.yyl.domain;
 
 import lombok.*;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -13,10 +13,20 @@ import javax.validation.constraints.NotNull;
  * @Description: TODO(这里描述)
  * @Date 2019/7/10 0010
  */
+@Component
+@ConfigurationProperties("user")
 @Getter
 @Setter
 @ToString
-public class MyGroovyUser {
+@AllArgsConstructor
+@NoArgsConstructor
+/**
+ * spring boot 可以校验@ConfigurationProperties类，但是需要类上标注了@Validated注解
+ * 如果配置了，那么就可以在类中直接使用JSR-303
+ */
+@Validated
+public class MyUser {
+    @NotNull
     private String age;
     private String name;
 }

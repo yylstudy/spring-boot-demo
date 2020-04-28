@@ -1,4 +1,4 @@
-package com.yyl;
+package com.yyl.service;
 
 import lombok.Getter;
 import lombok.Setter;

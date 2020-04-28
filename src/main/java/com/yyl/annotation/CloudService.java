@@ -1,4 +1,4 @@
-package com.yyl;
+package com.yyl.annotation;
 
 /**
  * @Author yang.yonglian

@@ -1,4 +1,4 @@
-package com.yyl;//package com.yyl;
+package com.yyl.configuration;//package com.yyl;
 //
 //import org.springframework.beans.BeansException;
 //import org.springframework.beans.factory.FactoryBean;

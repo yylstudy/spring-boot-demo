@@ -1,4 +1,7 @@
-package com.yyl;
+package com.yyl.dao;
+
+import com.yyl.domain.User;
+import com.yyl.annotation.Dao;
 
 import java.util.List;
 
