@@ -1,7 +1,8 @@
 package com.yyl.controller;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.yyl.annotation.CloudService;
+import com.yyl.annotation.RestResponseBody;
+import com.yyl.service.CloudService;
 import com.yyl.dao.UserDao;
 import com.yyl.dao.UserDao2;
 import com.yyl.domain.MyGroovyUser;
@@ -21,7 +22,6 @@ import org.springframework.transaction.support.TransactionTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -115,8 +115,12 @@ public class MyController {
 
 
     @RequestMapping("/test6")
-    @ResponseBody
-    public String test6(){
-        throw new RuntimeException("hahaha");
+    @RestResponseBody
+    public User test6(){
+        User user = new User();
+        user.setAge(30);
+        user.setId("11");
+        user.setName("yyl");
+        return user;
     }
 }

@@ -3,12 +3,11 @@ user:
   name: yyl
 druid:
   driver-class-name: com.mysql.jdbc.Driver
-  url: jdbc:mysql://localhost:3306/springboot
+  url: jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC
   username: root
   password: root
 cloud:
   version: 2.0
-
 spring:
   profiles:
     active: prod
@@ -64,6 +63,8 @@ management:
       show-details: always
     shutdown:
       enabled: false
+#spring boot进入debug模式
+#debug: true
 ---
 spring:
   profiles: prod

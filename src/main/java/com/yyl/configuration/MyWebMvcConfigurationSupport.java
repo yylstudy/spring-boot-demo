@@ -1,7 +1,10 @@
 package com.yyl.configuration;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+
+import java.util.List;
 
 /**
  * spring boot中自定义RequestMappingHandlerMapping 需要重写WebMvcConfigurationSupport
@@ -15,4 +18,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  */
 @Configuration
 public class MyWebMvcConfigurationSupport extends WebMvcConfigurationSupport {
+    @Override
+    protected void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> returnValueHandlers) {
+
+        returnValueHandlers.add(new MyHandlerMethodReturnValueHandler(this.getMessageConverters()));
+    }
 }

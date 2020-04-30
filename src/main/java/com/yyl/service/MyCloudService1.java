@@ -1,6 +1,5 @@
 package com.yyl.service;
 
-import com.yyl.annotation.CloudService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
