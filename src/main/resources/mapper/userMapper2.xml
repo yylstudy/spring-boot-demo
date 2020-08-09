@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yyl.UserDao2">
+<mapper namespace="com.yyl.dao.UserDao2">
     <!-- 使用自定义typeHandler,在获取结果集时处理参数 -->
-    <select id="findList" resultType="com.yyl.User">
+    <select id="findList" resultType="com.yyl.domain.User">
         select id,name,age from user
     </select>
-    <insert id="insert" parameterType="com.yyl.User">
+    <insert id="insert" parameterType="com.yyl.domain.User">
         insert into user(id,name,age) values(#{id},#{name},#{age} )
     </insert>
     <insert id="update" >
