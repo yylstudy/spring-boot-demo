@@ -28,7 +28,7 @@ public class MyNormalQueueConsumer {
      */
     @RabbitHandler
     @SneakyThrows(Exception.class)
-    public void consumeMsg(MyMsg myMsg,Channel channel,Message message){
+    public void consumeMsg(MyMsg myMsg,Channel channel,Message message) throws Exception{
         log.debug("接收到消息:{}", myMsg);
         try{
             int s = 1/0;

@@ -19,6 +19,7 @@ import sun.misc.SignalHandler;
 
 import javax.annotation.PostConstruct;
 import javax.ws.rs.POST;
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -64,7 +65,6 @@ public class MyController {
         System.out.println(dataSource.getDriverClassName()+"----"+dataSource.getPassword()+"------------------");
         List<Map<String, Object>> list = jdbcTemplate.queryForList("select username,password from test1");
         List<Map<String, Object>> list1 = jdbcTemplate.queryForList("select username,password from test1");
-        System.out.println(list);
         cloudService.test1();
         System.out.println(yyl);
         //mybatis的一级缓存是建立在transaction的基础上的，查看源码可知如果存在事务，
